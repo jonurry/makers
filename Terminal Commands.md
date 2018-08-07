@@ -35,3 +35,39 @@ Switches can be applied one by one or combined
 
 e.g. `touch worksheet` creates a file called _worksheet_ in the current directory
 
+## Removing Files
+`rm file_name` remove file in the current directory with the name *file_name*
+
+e.g. `rm worksheet` removes a file called _worksheet_ in the current directory
+
+_Note:_ it is difficult to restore files that have been removed using `rm`
+
+### Removing files interactive
+`rm -i` removes files in the current directory but prompts the user as to whether they want to delete each file in turn. Useful if you only want to keep a few files but delete others.
+
+### Removing files forcefully
+`rm -f` will forcefully remove a file even if it protected.
+
+## Create Directory
+`mkdir directory_name` make (or create) a directory with the name *directory_name* in the current working directory
+
+e.g. `mkdir Example`
+
+## Remove Directory
+`rmdir directory_name` removes (or deletes) a directory with the name *directory_name* from the current working directory
+
+e.g. `rmdir Example`
+
+_Note:_ Only works with empty directories
+
+### Remove directory and all files within
+`rm -r directory_name` removes (or deletes) a directory with the name *directory_name* from the current working directory as well as all of the files and folders within that directory, recursively. The `-r` switch indicates the recursive operation. 
+
+e.g. `rm -r SomeDir`
+
+## Copy File
+`cp file_1 file_2` makes a copy of _file_1_ and names it _file_2_
+
+## Move File
+`mv file_1 file_2` moves _file_1_ and names it _file_2_
+
