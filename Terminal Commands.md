@@ -210,3 +210,18 @@ Here, "u" stands for user ("g" for group, "o" for others and "a" for all), "+" m
 
 e.g. `chmod a-rx readme.txt` to remove read and execute permissions from all users.
 
+## Which
+Finds the location of a program in the user's path
+
+e.g. `which ruby` will show the path to the ruby program executable
+
+## Shebang #!
+A shebang is located in the first line of a file and instructs the command line as to which program should be used to execute the contents of the file. e.g.
+
+```ruby
+#!/usr/bin/env ruby
+puts "Hello, World!"
+```
+
+tells the command line to find the ruby program from the environment and use it to execute the rest of the file's contents.
+
