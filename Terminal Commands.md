@@ -225,3 +225,7 @@ puts "Hello, World!"
 
 tells the command line to find the ruby program from the environment and use it to execute the rest of the file's contents.
 
+## Superuser Mode
+Allows any command to be executed as the root user. The root user has access to everything and do anything. Execute any command as root by typing `sudo` before the commmand. You will need to know the root (administrator) password.
+
+e.g. `sudo rm inaccessibleFile` remove an inaacessible file that you don't have permission to access.
