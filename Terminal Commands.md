@@ -66,8 +66,25 @@ _Note:_ Only works with empty directories
 e.g. `rm -r SomeDir`
 
 ## Copy File
-`cp file_1 file_2` makes a copy of _file_1_ and names it _file_2_
+`cp [path_1/]file_1 [path_2/]file_2` makes a copy of _file_1_ and names it _file_2_ (paths are optional, if omitted assume same directory)
 
 ## Move File
-`mv file_1 file_2` moves _file_1_ and names it _file_2_
+`mv [path_1/]file_1 [path_2/]file_2` moves _file_1_ and names it _file_2_ (paths are optional, if omitted assume same directory)
+
+### Rename File
+Using the move file command `mv` we can rename a file by simply using a different file name
+
+e.g. `mv [path/]file_1 [path/]file_2` renames file_1 as file_2
+
+## Concatenate
+### View file contents
+`cat file` view the contents of file
+
+e.g. `cat readme.txt`
+
+### Insert text into file
+`cat > someMoreText` opens a text prompt where whatever the user types is stored in the file _someMoreText_. Exit using `ctrl-c`.
+
+### Merge contents of files
+`cat file_1 file_2 > merged_file` merge the contents of _file_1_ with _file_2_ and store it in _merged_file_
 
