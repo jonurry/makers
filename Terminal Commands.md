@@ -88,3 +88,24 @@ e.g. `cat readme.txt`
 ### Merge contents of files
 `cat file_1 file_2 > merged_file` merge the contents of _file_1_ with _file_2_ and store it in _merged_file_
 
+## View Contents of long files
+### less
+`less file` Using the "less" command, you're able to scroll up and down with your keyboard to view the entire document. When you're ready to finish viewing, just type "q"
+
+e.g. `less longText.txt` view the contents of _longText.txt_
+
+### head
+`head [-n] file` view the first 'n' lines of _file_. 'n' is a positive integer. If omitted, defaults to first 10 lines.
+
+e.g. `head -3 longText.txt` show the first 3 lines of the contents of _longText.txt_.
+
+### tail
+`tail [-n] file` view the last 'n' lines of _file_. 'n' is a positive integer. If omitted, defaults to last 10 lines.
+
+e.g. `tail -3 longText.txt` show the last 3 lines of the contents of _longText.txt_.
+
+### Monitor log files
+`tail -f file.log` Show the last 10 entries in the log file and then monitor for new entries. As soon as the log file is updated the entry will appear in the console. Ctrl-C to stop monitoring.
+
+e.g. `tail -f /private/var/log/system.log` to montor the OS X system log.
+
