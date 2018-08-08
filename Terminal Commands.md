@@ -165,3 +165,48 @@ e.g. `find ~ -name "*.txt" -print | grep README` This command will find all 'txt
 
 Grep actually takes a regular expression as the first parameter to search for. [RegExr](http://regexr.com/) is a great tool to use for regular expressions.
 
+## Word Count
+`wc [-clmw] [file ...]`
+
+The wc utility displays the number of lines, words, and bytes contained in each input file, or standard input (if no file is specified) to the standard output.
+
+e.g. `find ~ -name "*.txt" -print | grep README | wc -l` will find all of the .txt files from the home diroctory containing the word _README_ and display the number of lines in which that word occurs.
+
+## Permissions
+Every file and folder has permissions. Permissions are split into 3 classes (user, group and other). These are further subdivided into 3 permissions (read, write, execute).
+### User
+The owner of the file or folder. There can be only one owner. If the user accessing the file or folder is the owner then user permissions apply.
+#### whoami
+Too find out which user you are use `whoami`
+### Group
+Each user belongs to one or more groups. If the user accessing the file or folder belongs to a group then these permissions apply.
+### Other
+This class applies to all users that are not the owner or belong to a group.
+### Determine permissions
+`ls -l' will list the files in long format and show the permissions.
+### Understanding Permission Syntax
+File and folder permissions are broken down as follows using a 10 character representation:
+1. the type of file '-' for files, 'd' for directories
+2. read access for the user class, 'r' read access, '-' no access
+3. write access for the user class, 'w' read access, '-' no access
+4. execute access for the user class, 'x' read access, '-' no access
+5. read access for the group class, 'r' read access, '-' no access
+6. write access for the group class, 'w' read access, '-' no access
+7. execute access for the group class, 'x' read access, '-' no access
+8. read access for the user other, 'r' read access, '-' no access
+9. write access for the user other, 'w' read access, '-' no access
+10. execute access for the user other, 'x' read access, '-' no access
+
+e.g. `-r-x-r--r--` the file can be read and execured by the owner, and read buy members of a group or others.
+
+e.g. `drw-------` the directory can be read and changed by the owner but no other user has any access at all.
+
+### Changing Permissions
+Use the `chmod` command to alter permissions.
+
+e.g. `chmod u+w readme.txt` give the user a write permission on a file "readme.txt"
+
+Here, "u" stands for user ("g" for group, "o" for others and "a" for all), "+" means that we're adding the permission ("-" means we're removing it) and "w" stands for "write". You can combine several permissions.
+
+e.g. `chmod a-rx readme.txt` to remove read and execute permissions from all users.
+
