@@ -229,3 +229,66 @@ tells the command line to find the ruby program from the environment and use it 
 Allows any command to be executed as the root user. The root user has access to everything and do anything. Execute any command as root by typing `sudo` before the commmand. You will need to know the root (administrator) password.
 
 e.g. `sudo rm inaccessibleFile` remove an inaacessible file that you don't have permission to access.
+
+## Environment
+The enviromnent stores key/value pairs that describe the environment that programs run in. e.g. there's environment variables for the home directory and the temporary directory.
+
+`env` lists all environment variables and their values
+
+`$ echo $HOME` shows the location of the home directory
+
+`$ echo $TMPDIR` shows the location of the temporary directory
+
+Environment variables created in this way are only available for the lifetime of the current shell console. They will be deleted when the shell closes and are not available to other concurrent shell instances.
+
+### Echo
+The `echo` command prints its input to the screen
+
+e.g. `echo "Hi, there!"` prints "Hi, there!" to the output stream (screen by default)
+
+The output stream can be redirected to a file, for example, to save text to a file:
+
+`echo "save me to a file" > echoText.txt`
+
+### PATH
+PATH is an environment variable. It contains a colon-separated list of directories where the shell will be looking for the programs you ask it to run. To see the contents of the PATH:
+
+`echo $PATH`
+
+When you run a program from the command line the shell will look for the program's executable file in each directory specified in the PATH in turn until it finds it. If it doesn't, `command not found` will be returned.
+
+When switching ruby versions using `rvm` it updates the PATH and changes the names of the ruby directories to be those for the specified version. e.g. `rvm use 1.9.3`.
+
+### Setting environment variables
+Create a new environment variable by using the `export` command:
+
+e.g. `export SEASON=Winter`
+
+Add a path to the PATH environment variable:
+
+`export PATH=$PATH:/Users/jon`
+
+Store a private key used by an open source code module so that the code can be freely shared without compromising your private password/key:
+
+`export SECRET_KEY=12345abcde`
+
+Then, in your Ruby code, read the value:
+
+`secret_key = ENV['SECRET_KEY']`
+
+### Profiles
+Profiles are loaded whenever a shell is loaded. They contain configurations that are applied to the shell. You can alter the profiles to create permemant environment variables that are loaded into every shell instance. You can edit the _.bash_profile_ in the user's home directory:
+
+e.g. `echo "export SEASON=winter" >> ~/.bash_profile` will add the SEASON environment variable to the end of the bash profile file.
+
+_Note:_ `>>` means append to the end of the file, `>` means overwrite the contents of the file.
+
+### Processes
+`ps` to see the running processes in the shell
+
+`ps x` to see all of the running processes on the computer
+
+`ps x | grep process_name` to filter the list of running processes to a particular application or process name
+
+`ps x | grep process_name | wc -l` to count the number of filtered processes
+
